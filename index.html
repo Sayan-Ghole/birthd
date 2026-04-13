@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang='en'>
+<head>
+<meta charset='UTF-8'><meta name='viewport' content='width=device-width,initial-scale=1.0'>
+<title>Anu Birthday</title>
+<style>
+*{margin:0;padding:0;box-sizing:border-box}html{scroll-behavior:smooth}body{font-family:Inter,Arial,sans-serif;background:radial-gradient(circle at top left,#ffd6ec,#ff9fcb 30%,#ff5fa2 65%,#7a1d56);min-height:100vh;color:#fff;overflow-x:hidden;cursor:none}.stars,.cursor,.firework{position:fixed;pointer-events:none}.stars{inset:0;background-image:radial-gradient(rgba(255,255,255,.7) 1px,transparent 1px);background-size:24px 24px;opacity:.2}.orb,.orb2,.orb3{position:fixed;border-radius:50%;filter:blur(70px);opacity:.45;animation:float 10s ease-in-out infinite alternate}.orb{width:260px;height:260px;background:#fff;top:2%;left:2%}.orb2{width:320px;height:320px;background:#ff74b8;bottom:5%;right:5%}.orb3{width:220px;height:220px;background:#ff9ad5;top:40%;left:45%}.wrap{max-width:1250px;margin:auto;padding:24px;position:relative;z-index:2}.glass{background:rgba(255,255,255,.12);backdrop-filter:blur(22px) saturate(160%);border:1px solid rgba(255,255,255,.22);box-shadow:0 20px 80px rgba(0,0,0,.25);border-radius:32px}.nav,.panel,.card,.section,.gallery img{transition:.35s}.nav{display:flex;justify-content:space-between;align-items:center;padding:18px 24px;position:sticky;top:10px}.logo{font-weight:900;letter-spacing:2px}.hero{display:grid;grid-template-columns:1.1fr .9fr;gap:24px;margin-top:24px}.panel{padding:48px}.title{font-size:clamp(2.8rem,7vw,6rem);line-height:1;font-weight:900}.grad{background:linear-gradient(90deg,#fff,#ffd9ef,#fff);-webkit-background-clip:text;color:transparent}.sub{margin-top:14px;opacity:.95;font-size:1.1rem}.btns{display:flex;gap:14px;margin-top:28px;flex-wrap:wrap}.btn{padding:14px 24px;border:none;border-radius:999px;font-weight:800;cursor:pointer}.btn:hover,.card:hover,.gallery img:hover{transform:translateY(-6px) scale(1.02)}.primary{background:#fff;color:#ff2f8e}.ghost{background:rgba(255,255,255,.06);color:#fff;border:1px solid rgba(255,255,255,.35)}.photo{min-height:560px;overflow:hidden;transform-style:preserve-3d}.photo img{width:100%;height:100%;object-fit:cover}.stats,.grid,.gallery{display:grid;gap:18px;margin-top:24px}.stats{grid-template-columns:repeat(3,1fr)}.grid{grid-template-columns:repeat(auto-fit,minmax(220px,1fr))}.gallery{grid-template-columns:repeat(auto-fit,minmax(220px,1fr))}.gallery img{width:100%;height:220px;object-fit:cover;border-radius:24px}.card,.section{padding:24px}.section{margin-top:24px}.count{font-size:3rem;font-weight:900;text-align:center;margin-top:12px}.heart{position:fixed;pointer-events:none;animation:up 5s linear forwards}.reveal{opacity:0;transform:translateY(30px);transition:.8s}.reveal.show{opacity:1;transform:none}.cursor{width:18px;height:18px;border:2px solid #fff;border-radius:50%;z-index:9999;transform:translate(-50%,-50%)}@keyframes up{to{transform:translateY(-110vh) scale(1.6);opacity:0}}@keyframes float{to{transform:translate(60px,-30px)}}@keyframes boom{to{transform:translate(var(--x),var(--y)) scale(0);opacity:0}}@media(max-width:900px){body{cursor:auto}.cursor{display:none}.hero{grid-template-columns:1fr}.photo{min-height:360px}.stats{grid-template-columns:1fr}}
+</style>
+</head>
+<body>
+<div class='stars'></div><div class='orb'></div><div class='orb2'></div><div class='orb3'></div><div class='cursor' id='cursor'></div>
+<div class='wrap'>
+<nav class='glass nav'><div class='logo'>Dear Anu 💖</div><div class='btns'><button class='btn ghost' onclick='spawn(20)'>Hearts</button><button class='btn primary' onclick='launchFireworks()'>Fireworks</button></div></nav>
+<section class='hero'>
+<div class='glass panel reveal'>
+<div class='title'>Happy Birthday <span class='grad'>Anurikta</span> 🌸💖</div>
+<p class='sub' id='type'></p>
+<div class='btns'><button class='btn primary' onclick="document.querySelector('#letter').scrollIntoView()">Open Surprise 🎁</button><button class='btn ghost' onclick='toggleMusic()'>Music 🎵</button></div>
+<div class='stats'><div class='glass card'><h3>∞</h3><p>Smiles</p></div></div>
+</div>
+<div class='glass photo reveal' id='tilt'><img src='Screenshot 2026-04-13 121015.png'></div>
+</section>
+<section class='gallery'>
+<img class='glass reveal' src='Screenshot 2026-04-13 120232.png'><img class='glass reveal' src='Screenshot 2026-04-13 120306.png'>
+</section>
+<section class='grid'>
+<div class='glass card reveal'>🌸 Your smile makes everything brighter.</div><div class='glass card reveal'>💗 Your kindness feels like sunshine.</div><div class='glass card reveal'>✨ You deserve endless happiness always.</div><div class='glass card reveal'>🎀 Today the world celebrates you.</div>
+</section>
+<section class='glass section reveal'><h2>Birthday Countdown ⏳</h2><div class='count' id='count'>3</div></section>
+<section id='letter' class='glass section reveal'><h2>Dear Anu 💌</h2><br><p>Wishing you tons of happiness, fun, laughter, and amazing memories today and always. Keep smiling, keep shining, and stay the wonderful person you are. Life feels better with you in it. Happy Birthday, Anu.. 🎂🎉💖
+</p></section>
+</div>
+<audio id='music' loop><source src='birthday.mp3' type='audio/mpeg'></audio>
+<script>
+const msg='Pretty hearts, sweet smiles, and magical moments — today is all about you, Anu.';let i=0;const t=setInterval(()=>{if(i<msg.length)type.innerHTML+=msg[i++];else clearInterval(t)},40);
+function spawn(n=12){for(let i=0;i<n;i++){let h=document.createElement('div');h.className='heart';h.innerHTML=['💖','✨','🌸'][Math.floor(Math.random()*3)];h.style.left=Math.random()*100+'vw';h.style.top='100vh';h.style.fontSize=(18+Math.random()*20)+'px';document.body.appendChild(h);setTimeout(()=>h.remove(),5000)}}setInterval(()=>spawn(3),1600);
+function launchFireworks(){for(let i=0;i<40;i++){let f=document.createElement('div');f.className='firework';f.style.left='50%';f.style.top='50%';f.style.width='8px';f.style.height='8px';f.style.borderRadius='50%';f.style.background='white';f.style.setProperty('--x',(Math.random()*400-200)+'px');f.style.setProperty('--y',(Math.random()*400-200)+'px');f.style.animation='boom 1s forwards';document.body.appendChild(f);setTimeout(()=>f.remove(),1000)}}
+let playing=false;function toggleMusic(){const m=document.getElementById('music');playing?(m.pause()):(m.play());playing=!playing}
+const io=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting)e.target.classList.add('show')}));document.querySelectorAll('.reveal').forEach(x=>io.observe(x));
+let c=document.getElementById('cursor');document.addEventListener('mousemove',e=>{c.style.left=e.clientX+'px';c.style.top=e.clientY+'px'});
+const tilt=document.getElementById('tilt');tilt.addEventListener('mousemove',e=>{let r=tilt.getBoundingClientRect(),x=e.clientX-r.left,y=e.clientY-r.top;tilt.style.transform=`rotateY(${(x-r.width/2)/18}deg) rotateX(${-(y-r.height/2)/18}deg)`});tilt.addEventListener('mouseleave',()=>tilt.style.transform='rotateY(0) rotateX(0)');
+let num=21;setInterval(()=>{if(num>1)count.innerText=--num;else if(num===1){count.innerText='🎉';launchFireworks();num=0}},1000);
+</script>
+</body></html>
